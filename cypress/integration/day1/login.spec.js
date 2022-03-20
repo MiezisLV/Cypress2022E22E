@@ -4,6 +4,15 @@ import {ProductPage} from "../../pageOvjects/Pages/ProductPage";
 
 
 describe("Login test cases" , () => {
+    before(() => {
+        cy.request("POST","https://discord.com/api/webhooks/955086226547965952/WuaK1GMcRDVkOexPEz60OETIorJOvQeX4L1ftw7jDn_NuDM_g5J20FkMAcY_mMoUmXPr",
+            {
+            username: "Miezis",
+            content: "Starting",
+            tts: true
+            }
+        )
+    })
     it("Logging in with a valid user" , ()=> {
         LoginPage.openLoginPage()
         LoginPage.inputUsername("standard_user")
@@ -48,4 +57,9 @@ describe("Login test cases" , () => {
          ProductPage.inventoryContainerIsVisible()
      })
 
+    it.only("Starting the test in the mobile view" , () =>{
+        cy.viewport("iphone-x")
+        BasePage.loginWithoutUi()
+        ProductPage.inventoryContainerIsVisible()
+    })
 })

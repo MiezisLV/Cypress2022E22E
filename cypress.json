@@ -1,4 +1,11 @@
 {
   "chromeWebSecurity": false,
-  "baseUrl": "https://www.saucedemo.com"
+  "baseUrl": "https://www.saucedemo.com",
+  "videoUploadOnPasses": false,
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "reportDir": "cypress/results",
+    "html": false,
+    "overwrite": false
+  }
 }
